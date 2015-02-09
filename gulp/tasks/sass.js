@@ -7,7 +7,7 @@ var gulp       = require('gulp'),
 
 gulp.task('sass', ['images'], function() {
   var dest = './public/css'
-  return gulp.src(['lib/sass/**/*.{sass, scss}', '!lib/sass/vendor', '!lib/sass/vendor/**'])
+  gulp.src(['lib/sass/**/*.{sass, scss}', '!lib/sass/vendor', '!lib/sass/vendor/**'])
     // .pipe(changed(dest)) // Turn this on for more efficient, but selective compiling.
     .pipe(sass({
       sourcemapPath: process.cwd() + './lib/sass',
@@ -20,4 +20,10 @@ gulp.task('sass', ['images'], function() {
     .pipe(prefix('last 2 versions'))
     .pipe(purge())
     .pipe(gulp.dest(dest));
+
+  gulp.src(['./lib/css/**/*.css'])
+    .pipe(gulp.dest('./public/css'))
+
+  gulp.src(['./bower_components/**/*.css'])
+    .pipe(gulp.dest('./public/css/bower_components'))
 });

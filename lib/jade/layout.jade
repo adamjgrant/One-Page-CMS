@@ -5,6 +5,10 @@ block variables
 html(lang='en')
   head
     link(rel="stylesheet" href="/css/style.min.css")
+    link(rel="stylesheet" href="/css/font-awesome.min.css")
+    link(rel="stylesheet" href="/css/froala_editor.min.css")
+    link(rel="stylesheet" href="/css/froala_style.min.css")
+
     meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no")
     title My Website - #{title}
   body
@@ -16,4 +20,7 @@ html(lang='en')
         p Made by <a href="http://twitter.com/everythingdotio">Everything</a>
 
     script(src="/js/script.min.js")
+    script(src="/js/bower_components/jquery/dist/jquery.min.js")
     script(src="/js/froala.js")
+    script.
+      $('#edit').editable({inlineMode: false})

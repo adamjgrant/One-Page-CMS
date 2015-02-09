@@ -8,7 +8,7 @@ var gulp = require('gulp'),
 
 gulp.task('minify', ['coffee', 'browserify', 'sass'], function() {
   var dest = './public/js/';
-  gulp.src(['./public/js/**/*.js', '!./public/js/**/*.min.js'])
+  gulp.src(['./public/js/**/*.js', '!./public/js/**/*.min.js', '!./public/js/bower_components/**/*.js'])
     .pipe(changed(dest))
     .pipe(uglify())
     .pipe(rename(function(path) {
